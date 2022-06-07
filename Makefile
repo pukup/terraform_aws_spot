@@ -2,11 +2,10 @@ init:
 	terraform init
 
 plan:
-	terraform init
-	terraform plan
+	terraform plan -out plan.out
 
 apply:
-	terraform apply
+	terraform apply plan.out
 
 destroy:
 	terraform destroy
