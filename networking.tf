@@ -130,9 +130,9 @@ resource "aws_lb_target_group" "test" {
 }
 resource "aws_lb_target_group_attachment" "test" {
   target_group_arn = aws_lb_target_group.test.arn
-  target_id        = aws_spot_instance_request.cheap.spot_instance_id
+  target_id        = aws_instance.free.id
   port             = 80
-  depends_on       = [aws_spot_instance_request.cheap]
+  depends_on       = [aws_instance.free]
 }
 resource "aws_lb_listener" "front_end" {
   load_balancer_arn = aws_lb.test_lb.arn
